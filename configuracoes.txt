@@ -1,0 +1,90 @@
+comandos:
+
+npm install --save body-parser
+
+npm install --save express
+
+npm install --save mongodb
+
+npm install --save mongoose
+
+npm install --save-dev eslint-config-rallycoding
+
+npm install --save-dev babel-cli
+
+npm install --save-dev babel-preset-es2015 babel-preset-stage-2
+
+npm install --save firebase
+
+npm install --save-dev nodemon
+
+npm install --save moment-timezone
+
+npm install --save-dev babel-preset-env
+
+npm install --save-dev es-collections
+
+npm install --save-dev babel-plugin-transform-object-rest-spread
+
+npm install --save babel-polyfill
+
+npm install -g babel-cli
+
+
+@@@
+
+configurando o .eslintrc
+
+{
+    "extends": "rallycoding",
+    "rules": {
+        "semi": 0
+    }
+}
+
+@@@
+
+vscode user settings:
+
+{
+"terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\cmd.exe",
+"editor.minimap.enabled": false,
+"git.enableSmartCommit": true,
+"workbench.startupEditor": "newUntitledFile",
+"extensions.ignoreRecommendations": false,
+"window.zoomLevel": 0,
+"editor.renderWhitespace": "all"
+}
+
+@@@
+
+  "scripts": {
+    "start": "nodemon server.js --exec babel-node --presets es2015,stage-2"
+    //"start": "babel-node server.js --presets es2015,stage-2"
+  },
+
+@@@
+
+plugins instalados do vscode:
+
+Auto Close Tag (de Jun Han)
+Document This (de Joel Day)
+ESLint (de Dirk Baeumer)
+gitignore (de michelemelluso)
+Path Autocomplete (Mihai Vilcu)
+XML Tools (de Josh Johnson)
+XML Tools (de Qub)
+File Utils (de Steffen Leistner)
+
+
+@
+
+- Para instalar execute os seguintes comandos:
+
+npm install -g babel-cli
+
+npm install
+
+- Para rodar no modo desenvolvimento execute:
+
+npm run start-dev
