@@ -2,12 +2,13 @@
 
 import 'babel-polyfill'
 import express from 'express'
+import path from 'path'
 import bodyParser from 'body-parser'
 // import {
 //     createUser, whoHaveYouSeen, updateContact,
 //     addNewEmptyContact, login, addNewEmptyContactData, deleteContact
 // } from './app/routeProcessor/routeProcessor'
-import { rLog } from './app/utils/Util'
+import { rLog } from './src/app/utils/Util'
 
 // require('./app/persistence/mongooseConnection')
 
@@ -23,7 +24,11 @@ const port = process.env.PORT || 80
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    res.json({ message: 'Front Desbravador API' })
+    res.sendfile(path.join(__dirname, '/public/index.html'))
+})
+
+router.get('/index.css', (req, res) => {
+    res.sendfile(path.join(__dirname, '/public/css/index.css'))
 })
 
 // router.route('/createuser')

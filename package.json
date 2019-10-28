@@ -9,7 +9,7 @@
     "build": "npm run clean && npm run build-server",
     "build-windows": "npm run clean-windows && npm run build-server",
     "start": "node ./build/server.js",
-    "start-dev": "babel-node ./src/server.js",
+    "start-dev": "babel-node ./server.js",
     "publish-umbler": ".\\bat-scripts\\replace-connection.bat && npm run build-windows && .\\bat-scripts\\publish-umbler.bat && npm run clean-windows"
   },
   "dependencies": {
@@ -29,7 +29,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "es-collections": "0.0.2",
-    "eslint-config-rallycoding": "^3.2.0",
-    "nodemon": "^1.14.3"
+    "eslint-config-rallycoding": "^3.2.0"
   }
 }
