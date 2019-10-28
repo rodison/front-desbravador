@@ -30,6 +30,8 @@ npm install --save babel-polyfill
 
 npm install -g babel-cli
 
+npm i node-fetch --save
+
 
 @@@
 

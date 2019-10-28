@@ -4,6 +4,7 @@ import 'babel-polyfill'
 import express from 'express'
 import path from 'path'
 import bodyParser from 'body-parser'
+import fetch from 'node-fetch'
 // import {
 //     createUser, whoHaveYouSeen, updateContact,
 //     addNewEmptyContact, login, addNewEmptyContactData, deleteContact
@@ -31,16 +32,19 @@ router.get('/index.css', (req, res) => {
     res.sendfile(path.join(__dirname, '/public/css/index.css'))
 })
 
-// router.route('/createuser')
-//     .post((req, res) => {
-//         rLog('CAIH NO CREATE USER')
-//         // // if (req.query.action === ACTION_DELETE) {
-//         // //     routeProcessor.routeDeleteInpc(req, res)
-//         // // } else {
-//         rLog('Its in /createuser')
-//         // createUser(req, res)
-//         // // }
-//     })
+router.route('/users/:user')
+    .get((req, res) => {
+        rLog('caiu no /users/:user')
+        rLog('params:', req.params)
+        const user = req.params.user
+        fetch(`https://api.github.com/users/${user}`)
+            .then(response => {
+                response.json().then(json => {
+                    rLog('json resultante:', json)
+                })
+            })
+        res.status(200).send('OK')
+    })
 
 // router.route('/whohaveyouseen')
 //     .post((req, res) => {

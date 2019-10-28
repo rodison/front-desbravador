@@ -36,8 +36,12 @@
     <div class="painel-buscar">
       <div>Digite o nome do usuário que você deseja procurar no GitHub:</div>
       <div class="sub-buscar">
-        <input type="text" class="form-control" />
-        <button type="button" class="btn btn-primary">Procurar</button>
+        <input type="text" class="form-control" id="procurar" />
+        <form>
+          <button type="button" class="btn btn-primary" onclick="{
+            window.location='/front-desbravador/users/' + document.getElementById('procurar').value;
+            }">Procurar</button>
+        </form>
       </div>
     </div>
   </div>
