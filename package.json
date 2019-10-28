@@ -19,7 +19,7 @@
     "firebase": "^4.8.1",
     "moment-timezone": "^0.5.23",
     "mongodb": "^2.2.25",
-    "mongoose": "~4.13.7",
+    "mongoose": "~5.7.5",
     "node-fetch": "^2.6.0",
     "npm": "^6.9.0"
   },
