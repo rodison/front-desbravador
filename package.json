@@ -1,6 +1,6 @@
 {
   "name": "front-desbravador",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "main": "server.js",
   "scripts": {
     "clean": "rm -rf ./build && mkdir ./build",
@@ -8,7 +8,8 @@
     "build-server": "babel -d ./build ./server -s",
     "build": "npm run clean && npm run build-server",
     "build-windows": "npm run clean-windows && npm run build-server",
-    "start": "node ./build/server.js",
+    "start-old": "node ./build/server.js",
+    "start": "babel-node ./server.js",
     "start-dev": "babel-node ./server.js",
     "publish-umbler": ".\\bat-scripts\\replace-connection.bat && npm run build-windows && .\\bat-scripts\\publish-umbler.bat && npm run clean-windows"
   },

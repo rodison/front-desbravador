@@ -5,15 +5,7 @@ import express from 'express'
 import path from 'path'
 import bodyParser from 'body-parser'
 import fetch from 'node-fetch'
-// import {
-//     createUser, whoHaveYouSeen, updateContact,
-//     addNewEmptyContact, login, addNewEmptyContactData, deleteContact
-// } from './app/routeProcessor/routeProcessor'
 import { rLog } from './src/app/utils/Util'
-
-// require('./app/persistence/mongooseConnection')
-
-// // const ACTION_DELETE = 'delete'
 
 const app = express()
 app.use(bodyParser())
@@ -23,6 +15,10 @@ const port = process.env.PORT || 80
 
 // rotas da API
 const router = express.Router()
+
+router.get('/', (req, res) => {
+    res.sendfile(path.join(__dirname, '/public/index.html'))
+})
 
 router.get('/', (req, res) => {
     res.sendfile(path.join(__dirname, '/public/index.html'))
@@ -41,46 +37,13 @@ router.route('/users/:user')
             .then(response => {
                 response.json().then(json => {
                     rLog('json resultante:', json)
+                    res.status(200).send(json)
                 })
             })
-        res.status(200).send('OK')
+            .catch(() => {
+                res.status(200).send('Usuário não encontrado')
+            })
     })
-
-// router.route('/whohaveyouseen')
-//     .post((req, res) => {
-//         rLog('Its in get /whohaveyouseen')
-//         whoHaveYouSeen(req, res)
-//     })
-
-// router.route('/addnewemptycontact')
-//     .post((req, res) => {
-//         rLog('Its in get /addnewemptycontact')
-//         addNewEmptyContact(req, res)
-//     })
-
-// router.route('/updatecontact')
-//     .post((req, res) => {
-//         rLog('Its in get /updatecontact')
-//         updateContact(req, res)
-//     })
-
-// router.route('/addnewemptycontactdata')
-//     .post((req, res) => {
-//         rLog('Its in get /addnewemptycontactdata')
-//         addNewEmptyContactData(req, res)
-//     })
-
-// router.route('/deletecontact')
-//     .post((req, res) => {
-//         rLog('Its in get /deletecontact')
-//         deleteContact(req, res)
-//     })
-
-// router.route('/login')
-//     .post((req, res) => {
-//         rLog('Caiu no get /login')
-//         login(req, res)
-//     })
 
 // Add headers
 app.use((req, res, next) => {
